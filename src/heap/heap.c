@@ -44,7 +44,8 @@ void offer(heap *minheap, char str[], int val){
     int index;
     // Add new element to the end of heap
     minheap->size++;
-    minheap->elements[minheap->size].str = str;
+    minheap->elements[minheap->size].str = (char*) malloc(sizeof(str));
+    strcpy(minheap->elements[minheap->size].str, str);
     minheap->elements[minheap->size].val = val;
     
     // Move the node up the tree based on its value
