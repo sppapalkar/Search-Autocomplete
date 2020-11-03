@@ -50,4 +50,4 @@ $ ./main
 ```
 Select the right options and provide current inputs.
 
-
+Hey, curious reader. Here's a cookie for you - 🍪
