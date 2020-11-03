@@ -91,4 +91,3 @@ void del(hashmap *map, char key){
         map->count--;
     }
 }
-
