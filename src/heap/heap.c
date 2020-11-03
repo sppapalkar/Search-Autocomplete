@@ -51,7 +51,7 @@ void offer(heap *minheap, char str[], int val){
     int index;
     // Add new element to the end of heap
     minheap->size++;
-    minheap->elements[minheap->size].str = (char*) malloc(sizeof(str));
+    minheap->elements[minheap->size].str = (char*) malloc(sizeof(char)*strlen(str));
     strcpy(minheap->elements[minheap->size].str, str);
     minheap->elements[minheap->size].val = val;
     
