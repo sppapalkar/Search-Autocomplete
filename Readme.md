@@ -20,12 +20,12 @@ Input: "a"
 Output: []
 Explanation: Since none the prefixes of historical sentences match the input no suggestions are returned.
 ```
-##### End Points
+#### End Points
 The system will contain 2 end points:
 1. New Phrase - Allows user to input historical data and its frequency. 
 2. Get Suggestions - Allows user to provide input to the system for which suggestions are to be generated.
 
-##### Constraints 
+#### Constraints 
 The input sentences will only contain alphabet and whitespaces.
 
 ### Solution
@@ -35,7 +35,7 @@ For a given input to the system we traverse the given input in the trie and retr
 
 All data structures - hashmap, heap, trie have been implemented from scratch
 
-##### Time Complexity
+#### Time Complexity
 New Phrase - Each insert operation in trie takes **O(L)** time where *L* is the length of the given phrase. We either simply lookup each chracter of the given phrase in the trie or create new node for the character is the character is not present.
 
 Get Suggestions - Traversing the tree to the node representing the last character of the input will take *m* time where m is the length of the input string. The DFS will take *n* time where n is the number of nodes in the subtree of the node found by traversing the input. Since we are limiting the number of entries in heap to k+1, each insert and delete operation will take *log k* time. 
