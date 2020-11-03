@@ -79,6 +79,6 @@ char** get_suggestions(trienode* root, char str[], int k){
         strcpy(*(suggestions+index), poll(minheap));
         index--;
     }
-    free(minheap);
+    destroy_heap(minheap);
     return suggestions;
 }
