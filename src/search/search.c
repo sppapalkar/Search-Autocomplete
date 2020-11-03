@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 #include "search.h"
 
 // Assign more space to string
@@ -53,7 +54,9 @@ char** get_suggestions(trienode* root, char str[], int k){
     int index; string s;
     
     // Initialize char double pointer to store list of strings
-    suggestions = (char**) calloc(k,sizeof(char*));
+    suggestions = (char**) malloc(sizeof(char*)*k);
+    for(index = 0; index<k; index++)
+        *(suggestions+index) = NULL;
     minheap = init_heap(k);
     
     // Initialize string for storing string during dfs
@@ -76,5 +79,6 @@ char** get_suggestions(trienode* root, char str[], int k){
         strcpy(*(suggestions+index), poll(minheap));
         index--;
     }
+    free(minheap);
     return suggestions;
 }

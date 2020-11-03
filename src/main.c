@@ -1,7 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "search/search.h"
-
+#define MAX 128
 void display(char *str, char** suggestions){
     int index = 0;
     printf("\nSuggested Phrases: ");
@@ -13,7 +13,9 @@ void display(char *str, char** suggestions){
 
 void menu(){
     trienode *trie;
-    int ch;int k;
+    char **suggestions;
+    int ch;int k, freq;
+    char buf[MAX];
     trie = init_trienode('*');
     printf("\nEnter no Of suggestions(k): ");
     scanf("%d", &k);
@@ -30,21 +32,18 @@ void menu(){
         switch (ch)
         {
         case 1: 
-            char str[128];
-            int freq;
-            printf("Enter new phrase: ");
-            scanf("%s",str);
-            printf("Enter phrase frequency: ");
+            printf("\nEnter new phrase: ");
+            scanf("%[^\n]", buf);
+            printf("\nEnter phrase frequency: ");
             scanf("%d",&freq);
-            insert(trie, str, freq);
+            insert(trie, buf, freq);
             break;
-        case 2: 
-            char str[128];
-            char **suggestions;
+        case 2:
+            fflush (stdin); 
             printf("Enter input: ");
-            scanf("%s",str);
-            suggestions = get_suggestions(trie, str, k);
-            display(str, suggestions);
+            scanf("%[^\n]", buf);
+            suggestions = get_suggestions(trie, buf, k);
+            display(buf, suggestions);
             break;
         case 3: // Free space on quit
             free(trie);
