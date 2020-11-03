@@ -39,6 +39,7 @@ void heapify(heap *minheap, int element){
         heapify(minheap, smallest);
     }
 }
+
 // Add a new value to the heap
 void offer(heap *minheap, char str[], int val){
     int index;
@@ -55,6 +56,7 @@ void offer(heap *minheap, char str[], int val){
         index = index/2;
     }
 }
+
 // Poll the tree to remove the smallest value
 char* poll(heap *minheap){
     char *min = minheap->elements[0].str;
@@ -63,4 +65,11 @@ char* poll(heap *minheap){
     minheap->size--;
     heapify(minheap, 0);
     return min; 
+}
+
+// Returns the root of the heap
+char* peek(heap *minheap){
+    if(minheap->size == -1)
+        return NULL;
+    return minheap->elements[0].str;
 }
