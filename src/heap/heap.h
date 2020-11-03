@@ -16,5 +16,6 @@ void heapify(heap *, int);
 void offer(heap *, char[], int);
 char* poll(heap *);
 char* peek(heap *);
+void destroy_heap(heap*);
 
 #endif

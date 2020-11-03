@@ -11,6 +11,12 @@ heap* init_heap(int size){
     return minheap;
 }
 
+// Free heap space
+void destroy_heap(heap* minheap){
+    free(minheap->elements);
+    free(minheap);
+}
+
 // Swap two elements of min heap
 void swap(heap *minheap, int index1, int index2){
     heapnode temp;
