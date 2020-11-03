@@ -9,6 +9,7 @@ typedef struct trienode{
 }trienode;
 
 trienode* init_trienode(char);
-void insert(trienode*, char[], int freq);
+void insert(trienode*, char[], int);
+trienode* traverse(trienode *, char[]);
 
 #endif
